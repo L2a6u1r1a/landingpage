@@ -1,0 +1,65 @@
+ @import "elements/colors.less";
+ @import "elements/effects.less";
+ @import "elements/animations.less";
+ @import "elements/breakpoints.less";
+  
+  .WelcomeText {
+    font-size: max(3vw, 4vh);
+    font-family: 'Monoton', cursive;
+    letter-spacing: max(0.2vw, 0.2vh);
+    text-shadow: 0.2vw 0.2vw 0vw @emph-bright, 0.3vw 0.3vw 0vw @emph-add-1, 0.35vw 0.35vw 0vw @emph-add-2, 0.6vw 0.6vw 0vw @primary-dark;
+
+    @media @extralargedesktop {
+      font-size: 2.5vw;
+      letter-spacing: 0.1vw;
+    }
+  }
+  
+  .WelcomeSubText {
+    font-size: max(2vw, 3vh);
+    letter-spacing: max(0.2vw, 0.2vh);
+    text-shadow: 0.2vw 0.2vw 0vw @emph-bright, 0.3vw 0.3vw 0vw @emph-add-1, 0.35vw 0.35vw 0vw @emph-add-2, 0.6vw 0.6vw 0vw @primary-dark;
+
+    @media @extralargedesktop {
+      font-size: 1.5vw;
+      letter-spacing: 0.1vw;
+    }
+  }
+  
+  .TextFirstAnimation {
+    animation: fadeIn 1s ease-in 1;
+  }
+  
+  .hobble {
+    animation: hobble 2s linear 1;
+  }
+  
+  .live {
+    animation: live 1s ease-in-out infinite;
+  }
+  
+  .leave {
+    animation: leave 1.5s linear 1;
+
+    @media @smalldevice {
+      animation: leave--straight 1.5s linear 1;
+    }
+  }
+  
+  #Score {
+    width: 20vh;
+    height: 20vh;
+    font-size: 20vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  
+  .hole {
+    text-shadow: @shadow-large;
+    animation: hole 1.5s ease-in-out infinite;
+  }
+
+  .Plant {
+    position: absolute;
+  }

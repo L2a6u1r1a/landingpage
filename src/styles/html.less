@@ -1,0 +1,47 @@
+@import "elements/colors.less";
+
+html {
+    font-family: 'Galdeano', sans-serif;
+    background-color: @primary-bright;
+    background-blend-mode: multiply;
+    height: 100%;
+    cursor: none;
+    user-select: none;
+    margin: 0;
+    padding: 0;
+
+    @media @smalldevice {
+      background: repeating-linear-gradient( 80deg, @primary-bright, @primary-bright 1vh, @primary-dark 1vh, @primary-dark 10vh );
+    }
+    @media @largedesktop {
+      background: repeating-linear-gradient( 60deg, @primary-bright, @primary-bright 1vh, @primary-dark 1vh, @primary-dark 10vh );
+    }
+  }
+  
+  body, head, #root, #App {
+    color: @outline-dark;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    @media @smalldevice {
+      position: fixed;
+      left: 0;
+      right: 0;
+    }
+  }
+  
+  #App {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Content {
+    flex: 1;
+    display: flex;
+    @media @smalldevice {
+      overflow: scroll;
+    }
+  }

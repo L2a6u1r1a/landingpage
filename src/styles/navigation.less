@@ -1,0 +1,28 @@
+@import "elements/colors.less";
+@import "elements/breakpoints.less";
+
+#Footer {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    border-radius: max(1vw, 1vh);
+    background-color: @primary-bright;
+    box-shadow: @shadow-large;
+    font-size: max(4vw, 4vh);
+    margin: 0 1vw 1vh;
+    @media @extralargedesktop {
+      font-size: 3vw;
+    }
+}
+
+.NavigationElement {
+  text-shadow: @shadow-large, 0 0 0.2vw @emph-bright, 0 0 0.3vw @outline-dark;
+  margin: 1vw 0;
+  &--hovered {
+    text-shadow: @shadow-large, 0.5vw 0.5vw 3vw @emph-bright, 0 0 1vw @outline-dark;
+  }
+  @media @extralargedesktop {
+    margin: 0.5vw 0;
+  }
+}

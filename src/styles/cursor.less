@@ -1,0 +1,31 @@
+ @import "elements/effects.less";
+ 
+.cursor {
+  position: fixed;
+  font-size: max(2vw, 2vh);
+  transform: translate(-10%, -30%) rotate(100deg);
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 150ms ease;
+  transition-property:  opacity, background-color, transform;
+  text-shadow: @shadow-small;
+  
+  &--follow {
+    position: fixed;
+    font-size: max(2vw, 2vh);
+    transform: translate(-10%, -30%);
+    pointer-events: none;
+    z-index: 9998;
+    transition: all 150ms ease;
+    transition-property:  opacity, background-color, transform;
+    text-shadow: @shadow-small;
+  }
+  
+  &--clicked {
+     transform: translate(-10%, -30%) scale(0.9) rotate(80deg);
+  }
+  
+  &--element-hovered {
+       transform: translate(-50%, -50%) scale(1.75) rotate(100deg);
+  }
+}

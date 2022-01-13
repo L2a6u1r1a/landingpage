@@ -1,0 +1,69 @@
+{
+  "name": "landingpage",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "glob": "^7.2.0",
+    "mobx": "^6.3.9",
+    "mobx-react-lite": "^3.2.2",
+    "react": "^17.0.2",
+    "react-bootstrap": "^2.0.3",
+    "react-dom": "^17.0.2",
+    "react-scripts": "5.0.0",
+    "uuid": "^8.3.2"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run watch:less\" \"react-scripts start\"",
+    "less": "node build.js && lessc src/index.less public/index.css",
+    "watch:less": "onchange \"src/styles/**/*.less\" -- npm run less",
+    "build": "node build.js && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "lint": "npx eslint src/** --fix"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/less": "^3.0.3",
+    "@types/node": "^16.11.14",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "@types/uuid": "^8.3.3",
+    "@typescript-eslint/eslint-plugin": "^5.7.0",
+    "@typescript-eslint/parser": "^5.7.0",
+    "concurrently": "^6.5.1",
+    "eslint": "^8.5.0",
+    "eslint-config-airbnb": "^19.0.2",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "gh-pages": "^3.2.3",
+    "less": "^4.1.2",
+    "onchange": "^7.1.0",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.4"
+  },
+  "homepage": "https://l2a6u1r1a.github.io/landingpage"
+}

@@ -1,0 +1,42 @@
+@import "elements/colors.less";
+@import "elements/effects.less";
+@import "elements/animations.less";
+@import "elements/breakpoints.less";
+
+#PersonalData {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.PersonalDataElement {
+  padding: 3vh 3vw;
+  animation: gradient--background 10s ease infinite;
+  background-size: 300% 300%;
+  border-radius: 1vw;
+  margin: 1vw;
+  box-shadow: @shadow-small;
+  animation: fadeIn 0.05s ease-in-out 1;
+  text-align: center;
+  list-style: none;
+  
+  &--notFocused {
+    background: linear-gradient(-45deg, @secondary-dark-transparent, @secondary-bright-transparent);
+  }
+  &--focused {
+    background: linear-gradient(-45deg, @secondary-dark, @secondary-bright);
+    animation: fadeIn 0.5s ease-in-out 1;
+  }
+
+  @media @smalldevice {
+    width: 80vw;
+    font-size: max(1.8vw, 1.8vh);
+  }
+  @media @largedesktop {
+    width: 50vw;
+  }
+  @media @extralargedesktop {
+    width: 40vw;
+  }
+}
+

@@ -1,0 +1,394 @@
+.cursor {
+  position: fixed;
+  font-size: max(2vw, 2vh);
+  transform: translate(-10%, -30%) rotate(100deg);
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 150ms ease;
+  transition-property: opacity, background-color, transform;
+  text-shadow: 0.1vw 0.1vw 0.1vw #282C34;
+}
+.cursor--follow {
+  position: fixed;
+  font-size: max(2vw, 2vh);
+  transform: translate(-10%, -30%);
+  pointer-events: none;
+  z-index: 9998;
+  transition: all 150ms ease;
+  transition-property: opacity, background-color, transform;
+  text-shadow: 0.1vw 0.1vw 0.1vw #282C34;
+}
+.cursor--clicked {
+  transform: translate(-10%, -30%) scale(0.9) rotate(80deg);
+}
+.cursor--element-hovered {
+  transform: translate(-50%, -50%) scale(1.75) rotate(100deg);
+}
+@keyframes gradient--background {
+  00% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.7, 0.7);
+  }
+}
+@keyframes leave {
+  00% {
+    transform: translate(0%, 0%) rotate(0deg);
+  }
+  20% {
+    transform: translate(-10%, 20%) rotate(3deg) scale(0.9, 0.9);
+  }
+  50% {
+    transform: translate(-25%, 45%) rotate(-2deg) scale(0.75, 0.75);
+  }
+  70% {
+    transform: translate(-35%, 65%) rotate(3deg) scale(0.65, 0.65);
+  }
+  100% {
+    transform: translate(-50%, 100%) rotate(0deg) scale(0.5, 0.5);
+  }
+}
+@keyframes leave--straight {
+  00% {
+    transform: translate(0%, 0%) rotate(0deg);
+  }
+  20% {
+    transform: translate(0%, 30%) rotate(3deg) scale(0.9, 0.9);
+  }
+  50% {
+    transform: translate(0%, 75%) rotate(-2deg) scale(0.75, 0.75);
+  }
+  70% {
+    transform: translate(0%, 100%) rotate(3deg) scale(0.65, 0.65);
+  }
+  100% {
+    transform: translate(0%, 150%) rotate(0deg) scale(0.5, 0.5);
+  }
+}
+@keyframes hobble {
+  00% {
+    transform: translate(50%, 0%) rotate(0deg);
+  }
+  10% {
+    transform: translate(45%, 0%) rotate(1deg);
+  }
+  20% {
+    transform: translate(40%, 0%) rotate(3deg);
+  }
+  30% {
+    transform: translate(35%, 0%) rotate(5deg);
+  }
+  40% {
+    transform: translate(30%, 0%) rotate(3deg);
+  }
+  50% {
+    transform: translate(25%, 0%) rotate(1deg);
+  }
+  60% {
+    transform: translate(20%, 0%) rotate(0deg);
+  }
+  70% {
+    transform: translate(15%, 0%) rotate(-1deg);
+  }
+  80% {
+    transform: translate(10%, 0%) rotate(-2deg);
+  }
+  90% {
+    transform: translate(5%, 0%) rotate(-1deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes live {
+  25% {
+    transform: rotate(0.1deg) scale(1.005, 1.005);
+  }
+  50% {
+    transform: scale(1.005, 1.005);
+  }
+  75% {
+    transform: rotate(-0.1deg) scale(1.005, 1.005);
+  }
+}
+@keyframes hole {
+  50% {
+    transform: scale(1.1, 1.1);
+  }
+}
+.gradient--background {
+  background: linear-gradient(-45deg, #476E73, #5f939a);
+  background-size: 200% 200%;
+  animation: gradient--background 10s ease infinite;
+}
+.invisible {
+  opacity: 0;
+}
+html {
+  font-family: 'Galdeano', sans-serif;
+  background-color: #5f939a;
+  background-blend-mode: multiply;
+  height: 100%;
+  cursor: none;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+}
+@media only screen and (max-width: 992px) {
+  html {
+    background: repeating-linear-gradient(80deg, #5f939a, #5f939a 1vh, #476E73 1vh, #476E73 10vh);
+  }
+}
+@media only screen and (min-width: 992px) {
+  html {
+    background: repeating-linear-gradient(60deg, #5f939a, #5f939a 1vh, #476E73 1vh, #476E73 10vh);
+  }
+}
+body,
+head,
+#root,
+#App {
+  color: #282C34;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+@media only screen and (max-width: 992px) {
+  body {
+    position: fixed;
+    left: 0;
+    right: 0;
+  }
+}
+#App {
+  display: flex;
+  flex-direction: column;
+}
+.Content {
+  flex: 1;
+  display: flex;
+}
+@media only screen and (max-width: 992px) {
+  .Content {
+    overflow: scroll;
+  }
+}
+#Footer {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  border-radius: max(1vw, 1vh);
+  background-color: #5f939a;
+  box-shadow: 0.3vw 0.3vw 0.3vw #282C34;
+  font-size: max(4vw, 4vh);
+  margin: 0 1vw 1vh;
+}
+@media only screen and (min-width: 1200px) {
+  #Footer {
+    font-size: 3vw;
+  }
+}
+.NavigationElement {
+  text-shadow: 0.3vw 0.3vw 0.3vw #282C34, 0 0 0.2vw #146974, 0 0 0.3vw #282C34;
+  margin: 1vw 0;
+}
+.NavigationElement--hovered {
+  text-shadow: 0.3vw 0.3vw 0.3vw #282C34, 0.5vw 0.5vw 3vw #146974, 0 0 1vw #282C34;
+}
+@media only screen and (min-width: 1200px) {
+  .NavigationElement {
+    margin: 0.5vw 0;
+  }
+}
+#PersonalData {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.PersonalDataElement {
+  padding: 3vh 3vw;
+  animation: gradient--background 10s ease infinite;
+  background-size: 300% 300%;
+  border-radius: 1vw;
+  margin: 1vw;
+  box-shadow: 0.1vw 0.1vw 0.1vw #282C34;
+  animation: fadeIn 0.05s ease-in-out 1;
+  text-align: center;
+  list-style: none;
+}
+.PersonalDataElement--notFocused {
+  background: linear-gradient(-45deg, #d8ac9cb0, #eac8afab);
+}
+.PersonalDataElement--focused {
+  background: linear-gradient(-45deg, #d8ac9c, #eac8af);
+  animation: fadeIn 0.5s ease-in-out 1;
+}
+@media only screen and (max-width: 992px) {
+  .PersonalDataElement {
+    width: 80vw;
+    font-size: max(1.8vw, 1.8vh);
+  }
+}
+@media only screen and (min-width: 992px) {
+  .PersonalDataElement {
+    width: 50vw;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .PersonalDataElement {
+    width: 40vw;
+  }
+}
+#RabbitDiv {
+  width: 40vw;
+  font-size: max(12vw, 20vh);
+  text-align: center;
+  text-shadow: 0.3vw 0.3vw 0.3vw #282C34;
+}
+#WelcomeTextDiv {
+  text-align: center;
+  height: 100%;
+}
+@media only screen and (max-width: 992px) {
+  #WelcomeTextDiv {
+    width: 90vw;
+  }
+}
+@media only screen and (min-width: 992px) {
+  #WelcomeTextDiv {
+    width: 50vw;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  #WelcomeTextDiv {
+    width: 40vw;
+  }
+}
+#HoleDiv {
+  text-align: center;
+}
+@media only screen and (max-width: 992px) {
+  #HoleDiv {
+    height: 20vh;
+    width: max(10vw, 10vh);
+    font-size: 10vh;
+  }
+}
+@media only screen and (min-width: 992px) {
+  #HoleDiv {
+    height: 20vh;
+    width: max(10vw, 20vh);
+    font-size: max(8vw, 10vh);
+  }
+}
+@media only screen and (min-width: 1200px) {
+  #HoleDiv {
+    height: 20vh;
+    width: 20vh;
+    font-size: 6vw;
+  }
+}
+.WelcomeText {
+  font-size: max(3vw, 4vh);
+  font-family: 'Monoton', cursive;
+  letter-spacing: max(0.2vw, 0.2vh);
+  text-shadow: 0.2vw 0.2vw 0vw #146974, 0.3vw 0.3vw 0vw #297781, 0.35vw 0.35vw 0vw #42848d, 0.6vw 0.6vw 0vw #476E73;
+}
+@media only screen and (min-width: 1200px) {
+  .WelcomeText {
+    font-size: 2.5vw;
+    letter-spacing: 0.1vw;
+  }
+}
+.WelcomeSubText {
+  font-size: max(2vw, 3vh);
+  letter-spacing: max(0.2vw, 0.2vh);
+  text-shadow: 0.2vw 0.2vw 0vw #146974, 0.3vw 0.3vw 0vw #297781, 0.35vw 0.35vw 0vw #42848d, 0.6vw 0.6vw 0vw #476E73;
+}
+@media only screen and (min-width: 1200px) {
+  .WelcomeSubText {
+    font-size: 1.5vw;
+    letter-spacing: 0.1vw;
+  }
+}
+.TextFirstAnimation {
+  animation: fadeIn 1s ease-in 1;
+}
+.hobble {
+  animation: hobble 2s linear 1;
+}
+.live {
+  animation: live 1s ease-in-out infinite;
+}
+.leave {
+  animation: leave 1.5s linear 1;
+}
+@media only screen and (max-width: 992px) {
+  .leave {
+    animation: leave--straight 1.5s linear 1;
+  }
+}
+#Score {
+  width: 20vh;
+  height: 20vh;
+  font-size: 20vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.hole {
+  text-shadow: 0.3vw 0.3vw 0.3vw #282C34;
+  animation: hole 1.5s ease-in-out infinite;
+}
+.Plant {
+  position: absolute;
+}
+#Welcome {
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+#WelcomeTop {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+@media only screen and (max-width: 992px) {
+  #WelcomeTop {
+    flex-direction: column;
+    height: 70vh;
+  }
+}
+@media only screen and (min-width: 992px) {
+  #WelcomeTop {
+    flex-direction: row;
+    height: 40vh;
+  }
+}
+#WelcomeBottom {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+@media only screen and (max-width: 992px) {
+  #WelcomeBottom {
+    height: 6vh;
+  }
+}
+@media only screen and (min-width: 992px) {
+  #WelcomeBottom {
+    height: 8vh;
+  }
+}

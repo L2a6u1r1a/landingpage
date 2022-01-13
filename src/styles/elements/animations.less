@@ -1,0 +1,49 @@
+@keyframes gradient--background {
+    00% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: scale(0.7, 0.7); }
+}
+
+@keyframes leave {
+  00%   {transform: translate(-0%, 0%) rotate(0deg) }
+  20%   {transform: translate(-10%, 20%) rotate(3deg) scale(0.90, 0.90)}
+  50%   {transform: translate(-25%, 45%) rotate(-2deg) scale(0.75, 0.75)}
+  70%   {transform: translate(-35%, 65%) rotate(3deg) scale(0.65, 0.65)}
+  100%  {transform: translate(-50%, 100%) rotate(0deg) scale(0.5, 0.5)}
+}
+
+@keyframes leave--straight {
+  00%   {transform: translate(0%, 0%) rotate(0deg) }
+  20%   {transform: translate(0%, 30%) rotate(3deg) scale(0.90, 0.90)}
+  50%   {transform: translate(0%, 75%) rotate(-2deg) scale(0.75, 0.75)}
+  70%   {transform: translate(0%, 100%) rotate(3deg) scale(0.65, 0.65)}
+  100%  {transform: translate(0%, 150%) rotate(0deg) scale(0.5, 0.5)}
+}
+
+@keyframes hobble {
+  00%   {transform: translate(50%, 0%) rotate(0deg) }
+  10%   {transform: translate(45%, 0%) rotate(1deg) }
+  20%   {transform: translate(40%, 0%) rotate(3deg) }
+  30%   {transform: translate(35%, 0%) rotate(5deg) }
+  40%   {transform: translate(30%, 0%) rotate(3deg) }
+  50%   {transform: translate(25%, 0%) rotate(1deg) }
+  60%   {transform: translate(20%, 0%) rotate(0deg) }
+  70%   {transform: translate(15%, 0%) rotate(-1deg) }
+  80%   {transform: translate(10%, 0%) rotate(-2deg) }
+  90%   {transform: translate(5%, 0%) rotate(-1deg) }
+  100%  {transform: rotate(0deg) }
+}
+
+@keyframes live {
+  25%   {transform:  rotate(0.1deg) scale(1.005, 1.005)}
+  50%   {transform:  scale(1.005, 1.005)}
+  75%   {transform:  rotate(-0.1deg) scale(1.005, 1.005)}
+}
+
+@keyframes hole {
+  50%   {transform:  scale(1.1, 1.1)}
+}
